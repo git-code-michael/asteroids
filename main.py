@@ -1,5 +1,6 @@
 import pygame
 import constants
+from player import Player
 
 
 def main():
@@ -14,11 +15,14 @@ def main():
 
     screen = pygame.display.set_mode([constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT])
 
+    player = Player(x = constants.SCREEN_WIDTH / 2, y = constants.SCREEN_HEIGHT / 2)
+
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
         screen.fill("black")
+        player.draw(screen)
         pygame.display.flip()
         delta_time = clock.tick(60) / 1000
 
